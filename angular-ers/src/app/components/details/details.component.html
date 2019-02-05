@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h4 class="mb-3">Reimbursement Request Details</h4>
+  <div>
+    <p>Expense ID: {{ formid }}</p>
+    <p>Employee ID: {{ empid }}</p>
+    <p>Date Submitted: {{ submitdate }}</p>
+    <p>Transaction Date: {{ transdate }}</p>
+    <p>Expense Amount: ${{ amount }}</p>
+    <p>Expense Type: {{ type }}</p>
+    <p>Merchant Name: {{ merchant }}</p>
+    <p>Reimbursement Status: {{ status }}</p>
+    <p [hidden]="status === 'pending'">Date Resolved: {{ resolvedate }}</p>
+  </div>
+  <div class="row">
+    <button type="submit" (click)= "updateForm('approved')" class="btn btn-success mx-auto mx-sm-0" [hidden]="status=='approved' || status=='denied'" [routerLink]="['/success-page']" routerLinkActive="router-link-active" >Approve Reimbursement</button>
+    <button type="submit" (click)= "updateForm('denied')" class="btn btn-danger mx-auto mx-sm-3" [hidden]="status=='approved' || status=='denied'" [routerLink]="['/success-page']" routerLinkActive="router-link-active" >Deny Reimbursement</button>
+    <button type="button" (click)="clearCurrExp()" class="btn btn-primary mx-auto mx-sm-0" [hidden]="status == 'pending'" [routerLink]="['/mgr-home']" routerLinkActive="router-link-active">Return to All Requests</button>
+    <button type="button" (click)="clearCurrExp()" class="btn btn-primary mx-auto mx-sm-0" [hidden]="status == 'approved' || status == 'denied'" [routerLink]="['/mgr-home']" routerLinkActive="router-link-active">Cancel</button>
+  </div>
+</div>

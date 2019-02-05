@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-8">
+    <h4>Reimbursement Requests</h4>
+  </div>
+  <div class="col text-right">
+    <app-filter-button (changed)="filter($event)" (click)="retrieveAllMgrExp()"></app-filter-button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col" (click)="sort('formid')">Request ID</th>
+          <th scope="col" (click)="sort('submitdate')">Date Submitted</th>
+          <th scope="col" (click)="sort('transdate')">Transaction Date</th>
+          <th scope="col" (click)="sort('empid')">Employee ID</th>
+          <th scope="col" (click)="sort('expType')">Expense Type</th>
+          <th scope="col" (click)="sort('amount')">Amount</th>
+          <th scope="col" (click)="sort('status')">Status</th>
+          <th scope="col" (click)="sort('resolvedate')">Date Resolved</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exp of showExp"> <!-- changed from filteredexpense to _expenses -->
+          <td>{{ exp.formid }}</td>
+          <td>{{ exp.submitdate }}</td>
+          <td>{{ exp.transdate }}</td>
+          <td>{{ exp.empid }}</td>
+          <td>{{ exp.expType }}</td>
+          <td>${{ exp.amount }}</td>
+          <td>{{ exp.status }}</td>
+          <td>{{ exp.resolvedate }}</td>
+          <td>
+            <button [hidden]="exp.status=='pending'" (click)="setcurrForm(exp)" [routerLink]="['/details', exp.formid]" type="button" class="btn btn-secondary">Review</button>
+            <button [hidden]="exp.status=='approved' || exp.status=='denied'" (click)="setcurrForm(exp)" [routerLink]="['/details', exp.expId]" type="button" class="btn btn-info">Resolve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

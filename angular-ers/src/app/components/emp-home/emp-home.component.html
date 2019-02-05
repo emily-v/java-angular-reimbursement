@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <h2 class="text-center">Welcome {{firstname}}!</h2>
+  <div class="row">
+    <button [routerLink]="['/new-exp']" routerLinkActive="router-link-active" type="button" class="btn btn-outline-primary btn-block my-4">Submit New Expense</button>
+  </div>
+  <div class="tableArea">
+    <app-emp-table [expenses]="requests"></app-emp-table>
+  </div>
+  <div class="row">
+    <button [routerLink]="['/new-exp']" routerLinkActive="router-link-active" type="button" class="btn btn-outline-primary btn-block my-4">Submit New Expense</button>
+  </div>
+</div>

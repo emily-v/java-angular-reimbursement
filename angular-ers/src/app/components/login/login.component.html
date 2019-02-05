@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row mt-2 mt-md-4">
+    <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h3 class="card-title text-center">Welcome to the Expense Reimbursement Service!</h3>
+          <h4 class="card-text text-center">Please log in to continue</h4>
+          <br><br>
+        <form #loginForm="ngForm" (ngSubmit)="loginUser()"> 
+              <div class="form-group">
+                <label for="username">Email</label>
+                <input 
+                  type="email" 
+                  class="form-control" 
+                  name="username" 
+                  nameun="ngModel"
+                  [(ngModel)]="username"
+                  required
+                  placeholder="Enter username">
+                <!-- <p class="error">Username is required</p> -->
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  name="password" 
+                  namepw="ngModel"
+                  [(ngModel)]="password"
+                  required
+                  placeholder="Enter password">
+                <!-- <p class="error">Username is required</p> -->
+              </div>
+              <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary btn-block">Login</button>
+              <!-- <button [routerLink]="['/emp-home']" routerLinkActive="router-link-active" type="submit" class="btn btn-primary btn-block">Submit to emp home</button>
+              <button [routerLink]="['/mgr-home']" routerLinkActive="router-link-active" type="submit" class="btn btn-primary btn-block">Submit to mgr home</button> -->
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

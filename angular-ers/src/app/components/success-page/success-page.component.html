@@ -1,0 +1,6 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1>Action Successful!</h1>
+    <a [hidden]="role" [routerLink]="['/emp-home']" routerLinkActive="router-link-active">Return to Home</a>
+    <a [hidden]="!role" [routerLink]="['/mgr-home']" routerLinkActive="router-link-active">Return to Home</a>
+</div>

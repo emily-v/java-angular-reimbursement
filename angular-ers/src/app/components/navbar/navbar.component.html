@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-4">
+    <a class="navbar-brand ml-3" style="font-size: 1.5rem" [routerLink]="['/emp-home']" routerLinkActive="router-link-active">Expense Reimbursement System</a>
+    <button class="navbar-toggler mr-3" 
+      type="button" 
+      data-toggle="collapse" 
+      data-target="#navbarNavDropdown" 
+      aria-controls="navbarNavDropdown" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto text-center">
+        <li class="nav-item active mr-3">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" (click)="logout()">Logout</a>
+        </li> 
+      </ul>
+    </div>
+  </nav>
