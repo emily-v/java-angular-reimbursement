@@ -26,6 +26,7 @@ Employee can submit a new expense form and see updated form status when resolved
 
 
 ### To run application:
+* Edit database url and credentials in src/main/resources/hibernate.cfg.xml
 * Start up Apache Tomcat
 * $ mvn clean package && mvn tomcat7:deploy from root folder
 * Serve angular application $ ng serve
