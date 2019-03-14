@@ -13,7 +13,7 @@ import { Form } from 'src/app/models/Form';
 })
 export class DetailsComponent implements OnInit {
 
-  expense: IExpense;
+  expense: IExpense; 
   
 currExp: string = localStorage.getItem('currExp');
   formid: number = JSON.parse(this.currExp).formid;

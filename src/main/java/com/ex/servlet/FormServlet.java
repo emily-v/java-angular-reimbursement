@@ -40,7 +40,7 @@ public class FormServlet extends HttpServlet{
 			out.print(om.writeValueAsString(temp));
 			out.flush();
 		}else {
-			List<Form> temp = service.getEmpForm(form.getEmpid());
+			List<Form> temp = service.getEmpForm(form.getUserId());
 			PrintWriter out = response.getWriter();
 			out.print(om.writeValueAsString(temp));
 			out.flush();

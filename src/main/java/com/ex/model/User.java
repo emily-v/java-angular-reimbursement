@@ -11,15 +11,14 @@ import javax.persistence.Table;
 // using encapsulation (private data known as data-binding / public methods to get and set the values)
 
 	@Entity
-	@Table(name="ersuser")
+	@Table(name="ersusers")
 	public class User {
 
-		
+		@Id
 		@Column(name="USER_ID")
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private int id;
-		
-		@Id
+		private int userId;
+
 		@Column(name="EMAIL")
 		private String email;
 		
@@ -33,7 +32,7 @@ import javax.persistence.Table;
 		private String lastname;
 		
 		@Column(name="ROLE")
-		private boolean role;
+		private String role;
 		
 		
 		public User () {
@@ -41,11 +40,11 @@ import javax.persistence.Table;
 		}
 
 		public int getId() {
-			return id;
+			return userId;
 		}
 
-		public void setId(int id) {
-			this.id = id;
+		public void setId(int userId) {
+			this.userId = userId;
 		}
 
 		public String getEmail() {
@@ -80,17 +79,17 @@ import javax.persistence.Table;
 			this.lastname = lastname;
 		}
 
-		public boolean isRole() {
+		public String getRole() {
 			return role;
 		}
 
-		public void setRole(boolean role) {
+		public void setRole(String role) {
 			this.role = role;
 		}
 
 		@Override
 		public String toString() {
-			return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstname=" + firstname
+			return "User [id=" + userId + ", email=" + email + ", password=" + password + ", firstname=" + firstname
 					+ ", lastname=" + lastname + ", role=" + role + "]";
 		}
 		

@@ -4,10 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
  <hibernate-configuration>
  	<session-factory>
-		<property name="hibernate.connection.url">jdbc:postgresql://[change url]</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://mydb-inclass.cmpzxiqqdpxe.us-east-2.rds.amazonaws.com:5432/dbhello</property>
 		<property name="hibernate.connection.driver.class">org.Postgresql.Driver</property>
-		<property name="hibernate.connection.username">[change username]</property>
-		<property name="hibernate.connection.password">[change password]</property>
+		<property name="hibernate.connection.username">emily_vong</property>
+		<property name="hibernate.connection.password">mydb2018</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
  		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>

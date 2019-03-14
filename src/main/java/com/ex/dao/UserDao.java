@@ -35,12 +35,12 @@ public class UserDao{
 }
 
 	// this method is creating the table for users in the database
-	public String createTable()	{
-		transaction.begin();
-		session.createSQLQuery("create table if not exists ersuser(user_id int, email varchar primary key, password varchar, first_name varchar, last_name varchar, role varchar)").executeUpdate();
-		transaction.commit();
-		return null;
-	}
+//	public String createTable()	{
+//		transaction.begin();
+//		session.createSQLQuery("create table if not exists ersuser(user_id int, email varchar primary key, password varchar, first_name varchar, last_name varchar, role varchar)").executeUpdate();
+//		transaction.commit();
+//		return null;
+//	}
 	
 	// this method allows a new user to be saved into the users table
 	public String insertIntoTable(User user) {

@@ -17,18 +17,18 @@ public class FormService {
 		return true;
 	}
 	
-	public List<Form> getEmpForm(String email) {
-		return formdao.getFormByEmpId(email);
+	public List<Form> getEmpForm(int userId) {
+		return formdao.getFormByEmpId(userId);
 	}
 	
 	public List<Form> getManagerForms() {
-		return formdao.getFormAllByEmpId();
+		return formdao.getAllForms();
 	}
 	
 	public void UpdateFormStatus(Form form) {
-		Form tempform = formdao.getFormByformid(form.getFormid());
+		Form tempform = formdao.getFormById(form.getFormId());
 		tempform.setStatus(form.getStatus());
-		tempform.setResolvedate(form.getResolvedate());
+		tempform.setResolveDate(form.getResolveDate());
 		formdao.updateTable(tempform);
 	}
 

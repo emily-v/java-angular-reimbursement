@@ -11,22 +11,22 @@ import javax.persistence.Table;
 // using encapsulation (private data known as data-binding / public methods to get and set the values)
 
 @Entity
-@Table(name="ersform")
+@Table(name="ersticket")
 public class Form {
 	
 	@Id
-	@Column(name="FORMID")
+	@Column(name="formId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int formid;
+	private int formId;
 	
 	@Column(name="submitDate")
-	private String submitdate;
+	private String submitDate;
 	
 	@Column(name="transDate")
-	private String transdate;
+	private String transDate;
 	
 	@Column(name="exptype")
-	private String exptype;
+	private String expType;
 	
 	@Column(name="amount")
 	private float amount;
@@ -38,45 +38,45 @@ public class Form {
 	private String status;
 	
 	@Column(name="resolveDate")
-	private String resolvedate;
+	private String resolveDate;
 	
-	@Column(name="empId")
-	private String empid;
+	@Column(name="userId")
+	private int userId;
 	
 	public Form() {
 		
 	}
 
-	public int getFormid() {
-		return formid;
+	public int getFormId() {
+		return formId;
 	}
 
-	public void setFormid(int formid) {
-		this.formid = formid;
+	public void setFormId(int formId) {
+		this.formId = formId;
 	}
 
-	public String getSubmitdate() {
-		return submitdate;
+	public String getSubmitDate() {
+		return submitDate;
 	}
 
-	public void setSubmitdate(String submitdate) {
-		this.submitdate = submitdate;
+	public void setSubmitDate(String submitDate) {
+		this.submitDate = submitDate;
 	}
 
-	public String getTransdate() {
-		return transdate;
+	public String getTransDate() {
+		return transDate;
 	}
 
-	public void setTransdate(String transdate) {
-		this.transdate = transdate;
+	public void setTransDate(String transDate) {
+		this.transDate = transDate;
 	}
 
 	public String getExpType() {
-		return exptype;
+		return expType;
 	}
 
-	public void setExpType(String exptype) {
-		this.exptype = exptype;
+	public void setExpType(String expType) {
+		this.expType = expType;
 	}
 
 	public float getAmount() {
@@ -103,28 +103,35 @@ public class Form {
 		this.status = status;
 	}
 
-	public String getResolvedate() {
-		return resolvedate;
+	public String getResolveDate() {
+		return resolveDate;
 	}
 
-	public void setResolvedate(String resolvedate) {
-		this.resolvedate = resolvedate;
+	public void setResolveDate(String resolveDate) {
+		this.resolveDate = resolveDate;
 	}
 
-	public String getEmpid() {
-		return empid;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setEmpid(String empid) {
-		this.empid = empid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	@Override
 	public String toString() {
-		return "Form [formid=" + formid + ", submitdate=" + submitdate + ", transdate=" + transdate + ", exptype="
-				+ exptype + ", amount=" + amount + ", merchant=" + merchant + ", status=" + status + ", resolvedate="
-				+ resolvedate + ", empid=" + empid + "]";
+		return "Form{" +
+				"formId=" + formId +
+				", submitDate='" + submitDate + '\'' +
+				", transDate='" + transDate + '\'' +
+				", expType='" + expType + '\'' +
+				", amount=" + amount +
+				", merchant='" + merchant + '\'' +
+				", status='" + status + '\'' +
+				", resolveDate='" + resolveDate + '\'' +
+				", userId=" + userId +
+				'}';
 	}
-	
 }
 

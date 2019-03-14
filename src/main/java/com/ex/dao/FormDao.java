@@ -61,15 +61,15 @@ public class FormDao {
 	}
 	
 	// this method is selecting a form from the reimbursement table by the employee id
-	public List<Form> getFormByEmpId(String empid){
+	public List<Form> getFormByEmpId(int userId){
 		UserDao.session.beginTransaction();
-		List<Form> form = (List<Form>)UserDao.session.createQuery("from Form where empid = '"+empid+"'").list();
+		List<Form> form = (List<Form>)UserDao.session.createQuery("from Form where userId = '"+userId+"'").list();
 		UserDao.session.getTransaction().commit();
 		return form;
 	}
 	
 	// this method is selecting all forms from the reimbursement table by the employee id	
-	public List<Form>getFormAllByEmpId(){
+	public List<Form>getAllForms(){
 		UserDao.session.beginTransaction();
 		List<Form> form = (List<Form>)UserDao.session.createQuery("from Form").list();
 		UserDao.session.getTransaction().commit();
@@ -77,9 +77,9 @@ public class FormDao {
 	 }
 		 
 	// this method is selecting all forms from the reimbursement table by the form id
-	public Form getFormByformid(int id) {
+	public Form getFormById(int formId) {
 		UserDao.session.beginTransaction();
-		Form form =	UserDao.session.get(Form.class, id);
+		Form form =	UserDao.session.get(Form.class, formId);
 		UserDao.session.getTransaction().commit();
 		return form;
 	}
