@@ -15,8 +15,8 @@ import javax.persistence.Table;
 	public class User {
 
 		@Id
-		@Column(name="USER_ID")
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Column(name="USER_ID")
 		private int userId;
 
 		@Column(name="EMAIL")
@@ -89,7 +89,7 @@ import javax.persistence.Table;
 
 		@Override
 		public String toString() {
-			return "User [id=" + userId + ", email=" + email + ", password=" + password + ", firstname=" + firstname
+			return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", firstname=" + firstname
 					+ ", lastname=" + lastname + ", role=" + role + "]";
 		}
 		

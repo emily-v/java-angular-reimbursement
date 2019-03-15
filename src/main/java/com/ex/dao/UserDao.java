@@ -66,10 +66,17 @@ public class UserDao{
 		return null;	
 	}
 	
-	// this method is selecting a user from the user table by their email
-	public User getUserById(String id) {
+	// this method is selecting a user from the user table by their id
+	public User getUserById(int userId) {
 		transaction.begin();
-		User user =	session.get(User.class, id);
+		User user =	session.get(User.class, userId);
+		transaction.commit();
+		return user;
+	}
+
+	public User getUserByEmail(String email) {
+		transaction.begin();
+		User user = session.get(User.class, email);
 		transaction.commit();
 		return user;
 	}

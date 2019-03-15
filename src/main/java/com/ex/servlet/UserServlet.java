@@ -18,26 +18,37 @@ public class UserServlet extends HttpServlet{
 	public UserServlet() {
 	
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String json = request.getReader().readLine();
+
 		ObjectMapper om = new ObjectMapper();
 		User user = om.readValue(json, User.class);
+
 		UserService service = new UserService();
 		User temp = service.authenticateUser(user);
-		
-		if (temp==null) {
-			System.out.println("incorrect login");
-		}else {
-			System.out.println(temp.getFirstname());
-		}
-		
 		PrintWriter out = response.getWriter();
-		out.print(om.writeValueAsString(temp));
-		out.flush();	
+
+		if (temp == null) {
+			out.print("user doesn't match");
+		} else {
+			out.print(om.writeValueAsString(temp));
+		}
+//		out.flush();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		PrintWriter out = response.getWriter();
+		ObjectMapper om = new ObjectMapper();
+		String email = request.getParameter("email");
+		UserService service = new UserService();
+		User temp = service.retrieveUserByEmail(email);
+		if (temp == null) {
+			out.print("no user with that email");
+		} else {
+			out.print(om.writeValueAsString(temp));
+		}
 	}
 }
