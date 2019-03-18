@@ -1,5 +1,6 @@
 package com.ex.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -78,7 +79,8 @@ public class UserDao implements IUserDao {
 		transaction.begin();
 		System.out.println("email:" + email);
 //		User user = session.get(User.class, email);
-		User user = (User) session.createQuery("from ersusers where email='"+email+"'");
+		Query q = session.createQuery("from User where email='"+email+"'");
+		User user = (User) q.uniqueResult();
 		System.out.println("user:" + user);
 		transaction.commit();
 		return user;
