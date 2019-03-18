@@ -37,4 +37,13 @@ public class UserService {
 		}
 	}
 
+	public User retrieveUserById(int id) {
+		User fromDb = userDao.getUserById(id);
+		if (fromDb == null) {
+			return null;
+		} else {
+			return fromDb;
+		}
+	}
+
 }

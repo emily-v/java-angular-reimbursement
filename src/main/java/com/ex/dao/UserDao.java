@@ -9,7 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import com.ex.model.User;
 
-public class UserDao{
+public class UserDao implements IUserDao {
 	
 	private Transaction transaction;
 	public static Session session;
@@ -76,7 +76,10 @@ public class UserDao{
 
 	public User getUserByEmail(String email) {
 		transaction.begin();
-		User user = session.get(User.class, email);
+		System.out.println("email:" + email);
+//		User user = session.get(User.class, email);
+		User user = (User) session.createQuery("from ersusers where email='"+email+"'");
+		System.out.println("user:" + user);
 		transaction.commit();
 		return user;
 	}

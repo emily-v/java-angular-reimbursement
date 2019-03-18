@@ -19,7 +19,7 @@ import javax.persistence.Table;
 		@Column(name="USER_ID")
 		private int userId;
 
-		@Column(name="EMAIL")
+		@Column(name="EMAIL", unique=true)
 		private String email;
 		
 		@Column(name="PASSWORD")

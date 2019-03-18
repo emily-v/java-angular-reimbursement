@@ -10,6 +10,8 @@ import com.ex.model.User;
 import com.ex.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static java.lang.Integer.parseInt;
+
 public class UserServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -42,9 +44,11 @@ public class UserServlet extends HttpServlet{
 
 		PrintWriter out = response.getWriter();
 		ObjectMapper om = new ObjectMapper();
-		String email = request.getParameter("email");
 		UserService service = new UserService();
+		String email = request.getParameter("email");
 		User temp = service.retrieveUserByEmail(email);
+//		String idParam = request.getParameter("id");
+//		User temp = service.retrieveUserById(parseInt(idParam));
 		if (temp == null) {
 			out.print("no user with that email");
 		} else {

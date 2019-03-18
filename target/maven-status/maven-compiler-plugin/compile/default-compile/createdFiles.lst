@@ -6,4 +6,5 @@ com/ex/dao/UserDao.class
 com/ex/model/User.class
 com/ex/services/FormService.class
 com/ex/services/UserService.class
+com/ex/dao/IUserDao.class
 com/ex/model/Form.class

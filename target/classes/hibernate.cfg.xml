@@ -17,3 +17,8 @@
 
  	</session-factory>
  </hibernate-configuration>
+<!--start tomcat: In terminal, navigate to bin folder inside tomcat folder then $ ./startup.sh-->
+<!--terminate tomcat: $ ./shutdown.sh-->
+		<!--Force kill Tomcat: sudo lsof -t -i tcp:8080 | xargs kill-->
+
+<!--Redeploy war after making changes:  mvn clean package && mvn tomcat7:deploy-->
