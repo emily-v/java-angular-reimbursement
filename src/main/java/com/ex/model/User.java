@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-// establishing a table in the database for users and giving it a name and properties 
-// using encapsulation (private data known as data-binding / public methods to get and set the values)
-
 	@Entity
 	@Table(name="ersusers")
 	public class User {

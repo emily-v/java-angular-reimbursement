@@ -34,14 +34,6 @@ public class UserDao implements IUserDao {
 			e.printStackTrace();
 		}
 }
-
-	// this method is creating the table for users in the database
-//	public String createTable()	{
-//		transaction.begin();
-//		session.createSQLQuery("create table if not exists ersuser(user_id int, email varchar primary key, password varchar, first_name varchar, last_name varchar, role varchar)").executeUpdate();
-//		transaction.commit();
-//		return null;
-//	}
 	
 	// this method allows a new user to be saved into the users table
 	public String insertIntoTable(User user) {
@@ -86,7 +78,7 @@ public class UserDao implements IUserDao {
 		return user;
 	}
 	
-	// this method is selecting a user from the user table by their role (employee/manager)
+	// need to update
 	public User getUserByRole(boolean role) {
 		transaction.begin();
 		User user = (User) session.createQuery("from ersuser where role='"+role+"'");

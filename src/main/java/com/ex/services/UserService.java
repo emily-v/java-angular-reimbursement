@@ -15,8 +15,7 @@ public class UserService {
     // using the method created in userdao that selects the user by email from the database
     // if the email and password matches the info in the database exactly then the login is successful 
     public User authenticateUser(User u) {
-//    	User temp = userDao.getUserByEmail(u.getEmail());
-    	User temp = userDao.getUserById(u.getId());
+    	User temp = userDao.getUserByEmail(u.getEmail());
 		if (temp == null) {
     		return null;
     	}else {
@@ -28,6 +27,7 @@ public class UserService {
 		return null;
     }
 
+    // not using
     public User retrieveUserByEmail(String email) {
     	User fromDb = userDao.getUserByEmail(email);
     	if (fromDb == null) {
@@ -37,6 +37,7 @@ public class UserService {
 		}
 	}
 
+	// not using
 	public User retrieveUserById(int id) {
 		User fromDb = userDao.getUserById(id);
 		if (fromDb == null) {

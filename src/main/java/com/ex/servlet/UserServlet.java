@@ -14,22 +14,18 @@ import static java.lang.Integer.parseInt;
 
 public class UserServlet extends HttpServlet{
 
-	private static final long serialVersionUID = 1L;
-	private UserService userService;
-
 	public UserServlet() {
 	
 	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String json = request.getReader().readLine();
+		String json = request.getReader().readLine(); // request must be sent as one line
 
 		ObjectMapper om = new ObjectMapper();
 		User user = om.readValue(json, User.class);
 
-		UserService service = new UserService();
-		User temp = service.authenticateUser(user);
+		UserService userService = new UserService();
+		User temp = userService.authenticateUser(user);
 		PrintWriter out = response.getWriter();
 
 		if (temp == null) {
@@ -40,19 +36,17 @@ public class UserServlet extends HttpServlet{
 //		out.flush();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		PrintWriter out = response.getWriter();
-		ObjectMapper om = new ObjectMapper();
-		UserService service = new UserService();
-		String email = request.getParameter("email");
-		User temp = service.retrieveUserByEmail(email);
-//		String idParam = request.getParameter("id");
-//		User temp = service.retrieveUserById(parseInt(idParam));
-		if (temp == null) {
-			out.print("no user with that email");
-		} else {
-			out.print(om.writeValueAsString(temp));
-		}
-	}
+	// need to use doPost to authenticate instead of doGet by email
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		PrintWriter out = response.getWriter();
+//		ObjectMapper om = new ObjectMapper();
+//		UserService service = new UserService();
+//		String email = request.getParameter("email");
+//		User temp = service.retrieveUserByEmail(email);
+//		if (temp == null) {
+//			out.print("no user with that email");
+//		} else {
+//			out.print(om.writeValueAsString(temp));
+//		}
+//	}
 }
