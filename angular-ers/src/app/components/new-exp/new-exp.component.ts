@@ -24,7 +24,8 @@ export class NewExpComponent implements OnInit {
 
 
   ngOnInit() {
-    this.expense = new Expense(1, this.getTodaysDate(),"2019-01-15","email@email.com","pending",122.22,null,1, null)
+    this.form = new Form();
+    // this.expense = new Expense(1, this.getTodaysDate(),"2019-01-15","email@email.com","pending",122.22,null,1, null)
   } 
 
   getTodaysDate() {
@@ -34,17 +35,17 @@ export class NewExpComponent implements OnInit {
   }
 
  saveExpense() {
-    this.form = new Form();
-    this.form.submitdate = this.getTodaysDate();
-    this.form.transdate = this.expense.transDate;
-    this.form.status = 'pending';
-    this.form.expType =this.expense.expType ;
-    this.form.amount = this.expense.amount;
-    this.form.empid = this.email;
-    this.form.merchant = this.expense.merchant;
+    // this.form = new Form();
+    // this.form.submitdate = this.getTodaysDate();
+    // this.form.transdate = this.expense.transDate;
+    // this.form.status = 'pending';
+    // this.form.expType =this.expense.expType ;
+    // this.form.amount = this.expense.amount;
+    // this.form.empid = this.email;
+    // this.form.merchant = this.expense.merchant;
 
-    this.formservice.insertForm(this.form).subscribe();
-    this.router.navigate(['/success-page']);
+    // this.formservice.insertForm(this.form).subscribe();
+    // this.router.navigate(['/success-page']);
   }
   
   

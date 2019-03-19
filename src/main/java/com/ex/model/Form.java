@@ -11,7 +11,7 @@ import javax.persistence.Table;
 // using encapsulation (private data known as data-binding / public methods to get and set the values)
 
 @Entity
-@Table(name="ersticket")
+@Table(name="ersforms")
 public class Form {
 	
 	@Id

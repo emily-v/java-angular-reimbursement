@@ -16,7 +16,8 @@ private expense: Expense;
   private _expenses: IExpense[] = [];
 
   currUser: string = localStorage.getItem('currUser');
-  email: string = JSON.parse(this.currUser).email;
+  // email: string = JSON.parse(this.currUser).email;
+  id: number = JSON.parse(this.currUser).empid;
   private form: Form;
   
   @Input() get expenses(): IExpense[] {
@@ -45,7 +46,7 @@ private expense: Expense;
   ngOnInit() {
     // this.expense = new Expense;
      this.form = new Form();
-    this.form.empid = this.email;
+    this.form.empid = this.id;
     this.retrieveAllUserExp();
   }
 

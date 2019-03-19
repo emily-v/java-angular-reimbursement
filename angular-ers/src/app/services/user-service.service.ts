@@ -7,7 +7,8 @@ import { User } from 'src/app/models/User';
 })
 
 export class UserServiceService {
- public url = 'http://localhost:8080/HiberDemo/UserServlet';
+ public url = 'http://localhost:8080/ERS/UserServlet'; 
+//  public url = 'http://localhost:8080/HiberDemo/UserServlet';
   // public url = 'http://localhost:8080/servletexam/UserServlet';
   constructor(private httpClient: HttpClient) { }
   

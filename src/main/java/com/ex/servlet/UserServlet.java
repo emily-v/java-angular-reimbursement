@@ -19,6 +19,7 @@ public class UserServlet extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		setAccessControlHeaders(response);
 		String json = request.getReader().readLine(); // request must be sent as one line
 
 		ObjectMapper om = new ObjectMapper();
@@ -49,4 +50,9 @@ public class UserServlet extends HttpServlet{
 //			out.print(om.writeValueAsString(temp));
 //		}
 //	}
+
+	private void setAccessControlHeaders(HttpServletResponse resp) {
+		resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+		resp.setHeader("Access-Control-Allow-Methods", "POST");
+	}
 }

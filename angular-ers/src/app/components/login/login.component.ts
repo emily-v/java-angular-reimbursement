@@ -39,9 +39,13 @@ export class LoginComponent implements OnInit {
         alert('Invalid login attempt. Please try again.');
     } else{
       this.user = data;
-      localStorage.setItem('currUser', JSON.stringify(this.user));
-      if(this.user.role){this.router.navigate(['mgr-home']);}
-      else{this.router.navigate(['emp-home']);}
+      localStorage.setItem('currUser', JSON.stringify(this.user)); 
+      // this.router.navigate(['mgr-home']);
+      if(this.user.role === 'manager'){
+        this.router.navigate(['mgr-home']);
+      } else {
+        this.router.navigate(['emp-home']);
+      }
     }
   }
   

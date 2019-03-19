@@ -20,31 +20,49 @@ public class FormServlet extends HttpServlet{
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("type"));
-		response.getWriter().append("Type Testing").append(request.getContextPath());
+//		System.out.println(request.getParameter("type"));
+//		response.getWriter().append("Type Testing").append(request.getContextPath());
+		setAccessControlHeaders(response);
+		PrintWriter out = response.getWriter();
+		ObjectMapper om = new ObjectMapper();
+		FormService formService = new FormService();
+		List<Form> forms = formService.getManagerForms();
+		out.print(forms);
+//		for (Form form: forms) {
+//			out.print(om.writeValueAsString(form));
+//		}
+//		out.print(om.writeValueAsAString(forms));
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		setAccessControlHeaders(response);
 		String json = request.getReader().readLine();
 		ObjectMapper om = new ObjectMapper();
 		Form form = om.readValue(json, Form.class);
 		FormService service = new FormService();
-		
-		if ("pending".equals(form.getStatus())) {
-			service.formInsert(form);
-		}else if ("approved".equals(form.getStatus()) || "denied".equals(form.getStatus())) {
-			service.UpdateFormStatus(form);
-		}else if("manager".equals(form.getStatus())) {
-			List<Form> temp = service.getManagerForms();
-			PrintWriter out = response.getWriter();
-			out.print(om.writeValueAsString(temp));
-			out.flush();
-		}else {
-			List<Form> temp = service.getEmpForm(form.getUserId());
-			PrintWriter out = response.getWriter();
-			out.print(om.writeValueAsString(temp));
-			out.flush();
-		}
-	}	
+		service.formInsert(form);
+		PrintWriter out = response.getWriter();
+		out.print(form);
+//		if ("pending".equals(form.getStatus())) {
+//			service.formInsert(form);
+//		}else if ("approved".equals(form.getStatus()) || "denied".equals(form.getStatus())) {
+//			service.UpdateFormStatus(form);
+//		}else if("manager".equals(form.getStatus())) {
+//			List<Form> temp = service.getManagerForms();
+//			PrintWriter out = response.getWriter();
+//			out.print(om.writeValueAsString(temp));
+//			out.flush();
+//		}else {
+//			List<Form> temp = service.getEmpForm(form.getUserId());
+//			PrintWriter out = response.getWriter();
+//			out.print(om.writeValueAsString(temp));
+//			out.flush();
+//		}
+	}
+
+	private void setAccessControlHeaders(HttpServletResponse resp) {
+		resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+		resp.setHeader("Access-Control-Allow-Methods", "POST");
+	}
 	
 }

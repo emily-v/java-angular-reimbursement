@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { IExpense } from 'src/app/shared/interfaces';
+// import { IExpense } from 'src/app/shared/interfaces';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { IExpense } from 'src/app/shared/interfaces';
 })
 export class MgrHomeComponent implements OnInit {
   
-  requests: IExpense[];
+  // requests: IExpense[];
   currUser: string = localStorage.getItem('currUser');
   firstname: string = JSON.parse(this.currUser).firstname;
 

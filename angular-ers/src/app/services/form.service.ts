@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormService {
 
+ public insertUrl = 'http://localhost:8080/ERS/FormServlet';
 //  public insertUrl = 'http://localhost:8080/HiberDemo/FormServlet';
- public insertUrl = 'http://localhost:8080/servletexam/FormServlet';
+//  public insertUrl = 'http://localhost:8080/servletexam/FormServlet';
   
   constructor(private httpClient: HttpClient) { }
   
@@ -22,7 +23,7 @@ export class FormService {
   	return this.httpClient.post<Form>(this.insertUrl, JSON.stringify(form));
   }
   
-  getAllManagerForm(form: Form){
+  getAllForms(form: Form){
    	console.log(JSON.stringify(form));
   	return this.httpClient.post<Form>(this.insertUrl, JSON.stringify(form));
   }

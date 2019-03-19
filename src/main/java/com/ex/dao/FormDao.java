@@ -21,11 +21,10 @@ public class FormDao {
 	}
 	
 	// this method lets the user save a new form into the reimbursement table
-	public String insertIntoTable(Form form) {
+	public void insertIntoTable(Form form) {
 		UserDao.session.beginTransaction();
 		UserDao.session.save(form);
 		UserDao.session.getTransaction().commit();
-		return null;
 	}
 	
 	// this method is to update a forms in the reimbursement table 

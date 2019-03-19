@@ -44,7 +44,7 @@ currExp: string = localStorage.getItem('currExp');
 
   form: Form;
 
-  updateForm(f: String) {
+  updateForm(f: string) {
   this.form = new Form();
   this.form.status = f;
   this.form.formid = this.formid;
