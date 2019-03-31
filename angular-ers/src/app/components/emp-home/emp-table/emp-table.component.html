@@ -3,7 +3,7 @@
       <h4>Submitted Expenses</h4>
     </div>
     <div class="col text-right">
-      <app-filter-button (changed)="filter($event)" (click)="retrieveAllUserExp()"></app-filter-button>
+      <!-- <app-filter-button (changed)="filter($event)" (click)="retrieveAllUserExp()"></app-filter-button> -->
     </div>
   </div>
   <div class="row">
@@ -11,16 +11,22 @@
         <table class="table table-hover table-bordered">
             <thead>
               <tr>
-                <th scope="col" (click)="sort('submitdate')">Date Submitted</th>
+                <!-- <th scope="col" (click)="sort('submitdate')">Date Submitted</th>
                 <th scope="col" (click)="sort('transdate')">Transaction Date</th>
                 <th scope="col" (click)="sort('expType')">Expense Type</th>
                 <th scope="col" (click)="sort('amount')">Amount</th>
                 <th scope="col" (click)="sort('status')">Status</th>
-                <th scope="col" (click)="sort('resolvedate')">Date Resolved</th>
+                <th scope="col" (click)="sort('resolvedate')">Date Resolved</th> -->
+                <th scope="col">Date Submitted</th>
+                <th scope="col">Transaction Date</th>
+                <th scope="col">Expense Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date Resolved</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let exp of showExp"> <!-- changed from filteredexpense to _expenses -->
+              <tr *ngFor="let exp of _expenses"> <!-- changed from filteredexpense to _expenses -->
                 <td>{{ exp.submitdate }}</td>
                 <td>{{ exp.transdate }}</td>
                 <td>{{ exp.expType }}</td>

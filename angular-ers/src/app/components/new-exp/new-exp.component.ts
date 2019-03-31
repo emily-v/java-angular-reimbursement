@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IExpense } from 'src/app/shared/interfaces';
+// import { IExpense } from 'src/app/shared/interfaces';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { Form } from 'src/app/models/Form';
