@@ -11,6 +11,8 @@ import com.ex.model.Form;
 import com.ex.services.FormService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static java.lang.Integer.parseInt;
+
 public class FormServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -24,10 +26,53 @@ public class FormServlet extends HttpServlet{
 //		response.getWriter().append("Type Testing").append(request.getContextPath());
 		setAccessControlHeaders(response);
 		PrintWriter out = response.getWriter();
-		ObjectMapper om = new ObjectMapper();
-		FormService formService = new FormService();
-		List<Form> forms = formService.getManagerForms();
-		out.print(forms);
+		try {
+			Integer userId = null;
+			Integer formId = null;
+			if (request.getParameter("userId") != null) {
+				userId = Integer.valueOf(request.getParameter("userId"));
+				out.print(userId);
+			}
+			if (request.getParameter("formId") != null) {
+				formId = Integer.valueOf(request.getParameter("formId"));
+				out.print(formId);
+			}
+			if (userId == null && formId == null) {
+				out.print("no param");
+			}
+		} catch (NumberFormatException e) {
+			out.print("param is not an integer value");
+		}
+
+
+
+//		try {
+//			userId = Integer.valueOf(request.getParameter("userId"));
+//			out.print(userId);
+//			formId = Integer.valueOf(request.getParameter("formId"));
+//			out.print(formId);
+//		} catch (NumberFormatException e) {
+//			out.print("NumberFormatException thrown");
+//		}
+
+//
+//		request.getParameter("formId");
+//		Integer userIdVal = Integer.valueOf(userId);
+//		if (userId == null && formId == null) {
+//			out.print("no param");
+//		}
+//		if (userId != null) {
+//			out.print(userIdVal);
+//		}
+//		if (formId != null){
+//			out.print(formId);
+//		}
+
+//		FormService formService = new FormService();
+//		List<Form> forms = formService.getManagerForms();
+//		out.print(forms);
+
+//		ObjectMapper om = new ObjectMapper();
 //		for (Form form: forms) {
 //			out.print(om.writeValueAsString(form));
 //		}

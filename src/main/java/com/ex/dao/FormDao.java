@@ -74,8 +74,7 @@ public class FormDao {
 		UserDao.session.getTransaction().commit();
 		return form;
 	 }
-		 
-	// this method is selecting all forms from the reimbursement table by the form id
+
 	public Form getFormById(int formId) {
 		UserDao.session.beginTransaction();
 		Form form =	UserDao.session.get(Form.class, formId);
