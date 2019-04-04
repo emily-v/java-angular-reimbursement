@@ -24,6 +24,8 @@ public class FormService {
 	public List<Form> getManagerForms() {
 		return formdao.getAllForms();
 	}
+
+	public Form getForm(int formId) { return formdao.getFormById(formId); }
 	
 	public void UpdateFormStatus(Form form) {
 		Form tempform = formdao.getFormById(form.getFormId());

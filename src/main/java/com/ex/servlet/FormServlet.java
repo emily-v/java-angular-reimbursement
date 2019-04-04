@@ -26,51 +26,27 @@ public class FormServlet extends HttpServlet{
 //		response.getWriter().append("Type Testing").append(request.getContextPath());
 		setAccessControlHeaders(response);
 		PrintWriter out = response.getWriter();
+		FormService formService = new FormService();
 		try {
 			Integer userId = null;
 			Integer formId = null;
 			if (request.getParameter("userId") != null) {
 				userId = Integer.valueOf(request.getParameter("userId"));
-				out.print(userId);
+				List<Form> forms = formService.getEmpForm(userId);
+				out.print(forms);
 			}
 			if (request.getParameter("formId") != null) {
 				formId = Integer.valueOf(request.getParameter("formId"));
-				out.print(formId);
+				Form form = formService.getForm(formId);
+				out.print(form);
 			}
 			if (userId == null && formId == null) {
-				out.print("no param");
+				List<Form> forms = formService.getManagerForms();
+				out.print(forms);
 			}
 		} catch (NumberFormatException e) {
 			out.print("param is not an integer value");
 		}
-
-
-
-//		try {
-//			userId = Integer.valueOf(request.getParameter("userId"));
-//			out.print(userId);
-//			formId = Integer.valueOf(request.getParameter("formId"));
-//			out.print(formId);
-//		} catch (NumberFormatException e) {
-//			out.print("NumberFormatException thrown");
-//		}
-
-//
-//		request.getParameter("formId");
-//		Integer userIdVal = Integer.valueOf(userId);
-//		if (userId == null && formId == null) {
-//			out.print("no param");
-//		}
-//		if (userId != null) {
-//			out.print(userIdVal);
-//		}
-//		if (formId != null){
-//			out.print(formId);
-//		}
-
-//		FormService formService = new FormService();
-//		List<Form> forms = formService.getManagerForms();
-//		out.print(forms);
 
 //		ObjectMapper om = new ObjectMapper();
 //		for (Form form: forms) {
