@@ -81,6 +81,17 @@ public class FormServlet extends HttpServlet{
 //		}
 	}
 
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		setAccessControlHeaders(response);
+		String json = request.getReader().readLine();
+		ObjectMapper om = new ObjectMapper();
+		Form form = om.readValue(json, Form.class);
+		FormService service = new FormService();
+		service.updateForm(form);
+		PrintWriter out = response.getWriter();
+		out.print(form);
+	}
+
 	private void setAccessControlHeaders(HttpServletResponse resp) {
 		resp.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
 		resp.setHeader("Access-Control-Allow-Methods", "POST");

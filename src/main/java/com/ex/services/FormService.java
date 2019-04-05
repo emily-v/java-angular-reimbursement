@@ -27,11 +27,11 @@ public class FormService {
 
 	public Form getForm(int formId) { return formdao.getFormById(formId); }
 	
-	public void UpdateFormStatus(Form form) {
-		Form tempform = formdao.getFormById(form.getFormId());
-		tempform.setStatus(form.getStatus());
-		tempform.setResolveDate(form.getResolveDate());
-		formdao.updateTable(tempform);
+	public void updateForm(Form form) {
+		Form tempForm = formdao.getFormById(form.getFormId());
+//		tempform.setStatus(form.getStatus());
+//		tempform.setResolveDate(form.getResolveDate());
+		formdao.updateTable(tempForm);
 	}
 
 }
